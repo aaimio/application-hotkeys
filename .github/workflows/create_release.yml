@@ -1,0 +1,41 @@
+name: Create release
+run-name: 'Create release: `${{ github.ref_name }}`'
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  build:
+    name: Create release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: devcontainers/ci@v0.3
+        with:
+          cacheFrom: ghcr.io/aaimio/application-hotkeys
+          imageName: ghcr.io/aaimio/application-hotkeys
+          imageTag: latest,${{ github.ref_name }}
+          push: always
+          runCmd: make pack
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: application-hotkeys@aaimio.github.com.shell-extension.zip
+          generate_release_notes: true
+          make_latest: true

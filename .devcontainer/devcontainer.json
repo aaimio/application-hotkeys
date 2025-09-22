@@ -1,0 +1,24 @@
+{
+  "name": "application-hotkeys@aaimio.github.com",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:22",
+  "features": {
+    "ghcr.io/devcontainers-extra/features/pnpm:2.0.5": { "version": 10 }
+  },
+  "postCreateCommand": "pnpm install",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "github.vscode-github-actions",
+        "ms-vscode.makefile-tools",
+        "redhat.vscode-xml"
+      ],
+      "settings": {
+        "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+        "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+        "editor.tabSize": 2
+      }
+    }
+  }
+}

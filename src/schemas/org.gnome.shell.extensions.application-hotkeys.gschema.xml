@@ -1,0 +1,13 @@
+<schemalist>
+  <schema id="org.gnome.shell.extensions.application-hotkeys"
+    path="/org/gnome/shell/extensions/application-hotkeys/">
+    <key name="configs" type="as">
+      <default>[]</default>
+      <summary>A serialized list of application and hotkey configurations.</summary>
+    </key>
+    <key name="skip-animations" type="b">
+      <default>false</default>
+      <summary>Whether an attempt is made to skip animations for show and hide events.</summary>
+    </key>
+  </schema>
+</schemalist>
