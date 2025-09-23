@@ -1,7 +1,7 @@
 {
   "name": "application-hotkeys",
   "description": "A GNOME Shell Extension that lets you launch, show, and hide applications through a single hotkey.",
-  "version": "1",
+  "version": "2",
   "type": "module",
   "private": true,
   "repository": {

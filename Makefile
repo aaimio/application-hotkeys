@@ -27,7 +27,6 @@ ${MO_FILES}: $(PO_FILES)
 	@msgfmt $< -o $@
 
 ${SCHEMA_FILE}: src/schemas/org.gnome.shell.extensions.$(EXTENSION_SLUG).gschema.xml
-	@glib-compile-schemas src/schemas
 	@cp -r src/schemas dist
 
 $(ZIP_FILE): all
@@ -38,6 +37,8 @@ pack: $(ZIP_FILE)
 install: $(ZIP_FILE)
 	@rm -rf ~/.local/share/gnome-shell/extensions/$(EXTENSION_NAME)
 	@unzip $(ZIP_FILE) -d ~/.local/share/gnome-shell/extensions/$(EXTENSION_NAME)
+	@glib-compile-schemas src/schemas
+	@mv src/schemas/gschemas.compiled ~/.local/share/gnome-shell/extensions/$(EXTENSION_NAME)/schemas/
 
 clean:
 	@rm -rf dist $(ZIP_FILE)
