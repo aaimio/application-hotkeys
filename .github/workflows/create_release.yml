@@ -28,7 +28,7 @@ jobs:
 
       - uses: devcontainers/ci@v0.3
         with:
-          cacheFrom: ghcr.io/aaimio/application-hotkeys
+          cacheFrom: ghcr.io/aaimio/application-hotkeys:latest
           imageName: ghcr.io/aaimio/application-hotkeys
           imageTag: latest,${{ github.ref_name }}
           push: always
