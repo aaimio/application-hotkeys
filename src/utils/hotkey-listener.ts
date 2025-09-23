@@ -129,7 +129,7 @@ class HotkeyListener {
       return;
     }
 
-    const actionId = global.display.grab_accelerator(appConfig.hotkey, null);
+    const actionId = global.display.grab_accelerator(appConfig.hotkey, Meta.KeyBindingFlags.NONE);
 
     switch (actionId) {
       case Meta.KeyBindingAction.NONE: {
