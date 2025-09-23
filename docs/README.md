@@ -14,7 +14,7 @@ through a single hotkey.
 > - Apps are always moved to the active workspace
 > - Apps are always moved to the monitor where your pointer is
 > - If an app has multiple windows open, they are cycled
-> - Optionally, showing and hiding apps happens instantly (experimental)
+> - Showing and hiding apps happens instantly (optional + experimental)
 
 ## Installation
 
