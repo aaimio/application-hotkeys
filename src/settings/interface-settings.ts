@@ -1,24 +1,42 @@
+import type GLib from 'shims/gi/GLib';
 import Gio from 'shims/gi/Gio';
+import { wm } from 'shims/resource/org/gnome/shell/ui/main';
+import type { PatchedWindowManager } from 'types';
 
 class InterfaceSettings {
   #settings: Gio.Settings;
+  #originalShouldAnimate: (() => void) | undefined;
+  #timeout: GLib.Source | undefined;
 
   constructor() {
     this.#settings = new Gio.Settings({ schema_id: __INTERFACE_SCHEMA_ID__ });
+    this.#originalShouldAnimate = (wm as PatchedWindowManager)._shouldAnimate;
   }
 
+  /**
+   * From https://extensions.gnome.org/extension/119/disable-window-animations/
+   */
   maybeSuppressAnimation(shouldSuppress: boolean, callback: () => void) {
-    let shouldRestoreInitialValue = false;
+    const windowManager = wm as PatchedWindowManager;
 
-    if (shouldSuppress && this.#settings.get_boolean(__SETTINGS_KEY_ENABLE_ANIMATIONS__)) {
-      this.#settings.set_boolean(__SETTINGS_KEY_ENABLE_ANIMATIONS__, false);
-      shouldRestoreInitialValue = true;
-    }
+    if (
+      shouldSuppress &&
+      typeof windowManager._shouldAnimate === 'function' &&
+      this.#settings.get_boolean(__SETTINGS_KEY_ENABLE_ANIMATIONS__)
+    ) {
+      if (this.#timeout) {
+        clearTimeout(this.#timeout);
+      }
 
-    callback();
+      windowManager._shouldAnimate = () => false;
 
-    if (shouldRestoreInitialValue) {
-      this.#settings.set_boolean(__SETTINGS_KEY_ENABLE_ANIMATIONS__, true);
+      callback();
+
+      this.#timeout = setTimeout(() => {
+        windowManager._shouldAnimate = this.#originalShouldAnimate;
+      }, 100);
+    } else {
+      callback();
     }
   }
 }

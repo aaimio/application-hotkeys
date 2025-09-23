@@ -1,3 +1,5 @@
+import type { wm as windowManager } from 'shims/resource/org/gnome/shell/ui/main';
+
 export interface AppConfig {
   id: string;
   name: string;
@@ -14,4 +16,8 @@ export type Nullish<T> = T | null | undefined;
 
 export type WithExternalBindingName<T> = T & {
   bindingName: string;
+};
+
+export type PatchedWindowManager = typeof windowManager & {
+  _shouldAnimate?: () => void;
 };
