@@ -20,10 +20,13 @@ through a single hotkey.
 
 There are multiple ways to install:
 
-[<img src="https://github.com/aaimio/application-hotkeys/raw/main/docs/gnome-extension.png" align="right">](#)
+[<img src="https://github.com/aaimio/application-hotkeys/raw/main/docs/gnome-extension.png" align="right">](https://extensions.gnome.org/extension/8641/application-hotkeys/)
 
-1. Using [Extension Manager](#) (search for "Application Hotkeys")
-2. Through the [GNOME Extensions website](#)
+1. Using
+   [Extension Manager](https://flathub.org/en/apps/com.mattjakeman.ExtensionManager)
+   (search for "Application Hotkeys")
+2. Through the
+   [GNOME Extensions website](https://extensions.gnome.org/extension/8641/application-hotkeys/)
 3. [Each GitHub release](https://github.com/aaimio/application-hotkeys/releases)
    provides the extension as a `.zip`, download it and:
 
