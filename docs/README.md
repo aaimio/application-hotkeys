@@ -7,7 +7,7 @@ through a single hotkey.
 - **Show** an application if it's running, but not focused
 - **Hide** an application if it's already focused
 
-![Application Hotkeys: Preferences page](./screenshot.png)
+![Application Hotkeys: Preferences page](./screenshot.webp)
 
 > [!NOTE]
 >
