@@ -43,7 +43,13 @@ The easiest way to get started is by using the devcontainer
 
 1. [Open the devcontainer](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/aaimio/application-hotkeys)
    ([source](../.devcontainer/devcontainer.json))
-2. Skip to #3 below (, execute `make` on container, `dbus-run-session` on host)
+2. Once you made changes, pack the extension:
+   - `make pack` (see [Makefile](../Makefile))
+3. Copy the generated `.zip` file to the host and install it locally:
+   - `gnome-extensions install application-hotkeys@aaimio.github.com.shell-extension.zip`
+4. Start a nested GNOME Shell (on the host) for testing:
+   - `dbus-run-session -- gnome-shell --nested --wayland` (≤48)
+   - `dbus-run-session -- gnome-shell --devkit` (≥49)
 
 For a local approach:
 
