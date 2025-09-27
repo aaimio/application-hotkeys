@@ -1,3 +1,5 @@
+import fs from 'fs';
+import path from 'path';
 import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import packageJSON from './package.json';
@@ -25,7 +27,7 @@ const config = defineConfig({
     },
     rollupOptions: {
       output: {
-        chunkFileNames: 'shared/[name].js',
+        preserveModules: true,
       },
     },
   },

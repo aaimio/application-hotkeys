@@ -16,7 +16,7 @@ class InterfaceSettings {
   /**
    * From https://extensions.gnome.org/extension/119/disable-window-animations/
    */
-  maybeSuppressAnimation(shouldSuppress: boolean, callback: () => void) {
+  public maybeSuppressAnimation(shouldSuppress: boolean, callback: () => void) {
     const windowManager = wm as PatchedWindowManager;
 
     if (
@@ -24,9 +24,7 @@ class InterfaceSettings {
       typeof windowManager._shouldAnimate === 'function' &&
       this.#settings.get_boolean(__SETTINGS_KEY_ENABLE_ANIMATIONS__)
     ) {
-      if (this.#timeout) {
-        clearTimeout(this.#timeout);
-      }
+      this.maybeClearTimeout();
 
       windowManager._shouldAnimate = () => false;
 
@@ -38,6 +36,17 @@ class InterfaceSettings {
     } else {
       callback();
     }
+  }
+
+  public maybeClearTimeout() {
+    if (this.#timeout) {
+      clearTimeout(this.#timeout);
+    }
+  }
+
+  public dispose() {
+    this.maybeClearTimeout();
+    (wm as PatchedWindowManager)._shouldAnimate = this.#originalShouldAnimate;
   }
 }
 

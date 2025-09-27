@@ -14,6 +14,7 @@ MO_FILES 				 	:= $(patsubst %,dist/locales/%/LC_MESSAGES/$(EXTENSION_NAME).mo,$
 all: ${JS_FILES} ${MO_FILES} ${SCHEMA_FILE}
 	@cp LICENSE.md dist
 	@cp src/metadata.json dist
+	@pnpm lint:dist
 	@cd dist && ../node_modules/.bin/prettier --write .
 
 node_modules: package.json

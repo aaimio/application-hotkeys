@@ -1,6 +1,6 @@
 import Gio from 'shims/gi/Gio';
 import type { AppConfig, AppConfigTuple, SerializedAppConfigTuple } from 'types';
-import { appInfoToAppConfig } from '../utils/apps';
+import { appInfoToAppConfig } from 'utils/apps';
 
 class ExtensionSettings {
   #settings: Gio.Settings;
@@ -17,15 +17,15 @@ class ExtensionSettings {
     return this.#settings.get_strv(__SETTINGS_KEY_APP_CONFIGS__) as SerializedAppConfigTuple[];
   }
 
-  writeSerializedAppConfigs(serializedAppConfigs: SerializedAppConfigTuple[]) {
+  public writeSerializedAppConfigs(serializedAppConfigs: SerializedAppConfigTuple[]) {
     return this.#settings.set_strv(__SETTINGS_KEY_APP_CONFIGS__, serializedAppConfigs);
   }
 
-  serializeAppConfig({ id, hotkey }: AppConfig) {
+  public serializeAppConfig({ id, hotkey }: AppConfig) {
     return JSON.stringify([id, hotkey] satisfies AppConfigTuple) as SerializedAppConfigTuple;
   }
 
-  deserializeAppConfig(serializedAppConfig: SerializedAppConfigTuple) {
+  public deserializeAppConfig(serializedAppConfig: SerializedAppConfigTuple) {
     try {
       const [appId, hotkey] = JSON.parse(serializedAppConfig) as AppConfigTuple;
 
@@ -39,14 +39,14 @@ class ExtensionSettings {
     return undefined;
   }
 
-  getConfiguredAppIds() {
+  public getConfiguredAppIds() {
     return this.serializedAppConfigs.reduce((accumulator: string[], serializedAppConfig) => {
       const [appId] = this.deserializeAppConfig(serializedAppConfig) ?? [];
       return appId ? [...accumulator, appId] : accumulator;
     }, []);
   }
 
-  getAppConfigs() {
+  public getAppConfigs() {
     return this.serializedAppConfigs.reduce((appConfigs: AppConfig[], serializedAppConfig) => {
       const [appId, hotkey] = this.deserializeAppConfig(serializedAppConfig) ?? [];
 
@@ -70,14 +70,14 @@ class ExtensionSettings {
     }, []);
   }
 
-  addAppConfig(appConfig: AppConfig) {
+  public addAppConfig(appConfig: AppConfig) {
     return this.writeSerializedAppConfigs([
       ...this.serializedAppConfigs,
       this.serializeAppConfig(appConfig),
     ]);
   }
 
-  removeAppConfigByAppId = (targetAppId: string) => {
+  public removeAppConfigByAppId = (targetAppId: string) => {
     const serializedAppConfigs = [...this.serializedAppConfigs];
 
     const idx = serializedAppConfigs.findIndex((serializedAppConfig) => {
@@ -93,7 +93,7 @@ class ExtensionSettings {
     return false;
   };
 
-  updateAppConfigById(appId: string, properties: Pick<AppConfig, 'hotkey'>) {
+  public updateAppConfigById(appId: string, properties: Pick<AppConfig, 'hotkey'>) {
     const appConfigs = this.getAppConfigs();
 
     for (const appConfig of appConfigs) {
@@ -117,7 +117,7 @@ class ExtensionSettings {
     return false;
   }
 
-  setShouldSkipAnimations(shouldSkipAnimations: boolean) {
+  public setShouldSkipAnimations(shouldSkipAnimations: boolean) {
     return this.#settings.set_boolean(__SETTINGS_KEY_SKIP_ANIMATIONS__, shouldSkipAnimations);
   }
 }
