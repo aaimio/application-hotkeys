@@ -31,7 +31,7 @@ There are multiple ways to install:
    provides the extension as a `.zip`, download it and:
 
 ```sh
-unzip application-hotkeys@aaimio.github.com.zip -d ~/.local/share/gnome-shell/extensions/application-hotkeys@aaimio.github.com
+gnome-extensions install application-hotkeys@aaimio.github.com.shell-extension.zip
 ```
 
 ## Contributing
