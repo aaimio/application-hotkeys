@@ -22,8 +22,8 @@ class ApplicationHotkeysPreferences extends ExtensionPreferences {
     return (this.#_settings ??= this.getSettings());
   }
 
-  // eslint-disable-next-line @typescript-eslint/require-await
-  async fillPreferencesWindow(window: Adw.PreferencesWindow) {
+  // @ts-expect-error TS expects a promise here, error in upstream types?
+  fillPreferencesWindow(window: Adw.PreferencesWindow) {
     let page: Adw.PreferencesPage | undefined;
 
     const init = () => {

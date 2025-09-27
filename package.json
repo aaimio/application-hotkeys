@@ -19,12 +19,14 @@
     "build:i18n": "vite-node ./scripts/build-pot.ts",
     "format": "prettier --write '**/*.{json,md,ts}'",
     "lint": "eslint",
+    "lint:dist": "eslint -c ./eslint.config.dist.mjs --fix",
     "prepare": "husky"
   },
   "devDependencies": {
     "@eslint/js": "9.36.0",
     "@girs/gjs": "4.0.0-beta.36",
     "@girs/gnome-shell": "49.0.1",
+    "@stylistic/eslint-plugin": "5.4.0",
     "@trivago/prettier-plugin-sort-imports": "5.2.2",
     "eslint": "9.36.0",
     "gettext-extractor": "4.0.1",

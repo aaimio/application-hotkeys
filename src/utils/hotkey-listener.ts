@@ -5,6 +5,7 @@ import Meta from 'shims/gi/Meta';
 import Shell from 'shims/gi/Shell';
 import { wm as windowManager } from 'shims/resource/org/gnome/shell/ui/main';
 import type { AppConfig, Nullish, WithExternalBindingName } from 'types';
+import { findWindowByAppConfig, getFocusedWindowByApp, isAppMatch } from 'utils/apps';
 
 class HotkeyListener {
   #actionMap: Map<number, WithExternalBindingName<AppConfig>> | undefined;
@@ -26,44 +27,14 @@ class HotkeyListener {
     this.#init();
   }
 
-  #isAppMatch(app: Nullish<Shell.App>, appConfig: AppConfig): app is Shell.App {
-    return app ? app.get_name() === appConfig.name : false;
-  }
-
-  #getFirstWindowByAppConfig(appConfig: AppConfig) {
-    for (const windowActor of global.get_window_actors()) {
-      const window = windowActor.get_meta_window();
-
-      if (!window || window.is_override_redirect()) {
-        continue;
-      }
-
-      if (this.#isAppMatch(this.#windowTracker.get_window_app(window), appConfig)) {
-        return window;
-      }
-    }
-
-    return undefined;
-  }
-
-  #getFocusedWindow(app: Nullish<Shell.App>) {
-    if (app) {
-      return app.get_windows().find((window) => {
-        return window.has_focus();
-      });
-    }
-
-    return undefined;
-  }
-
   #maybeMoveOrHideWindow(appConfig: AppConfig): boolean {
     const app = this.#windowTracker.get_focus_app();
 
-    if (!this.#isAppMatch(app, appConfig)) {
+    if (!isAppMatch(app, appConfig)) {
       return false;
     }
 
-    const window = this.#getFocusedWindow(app);
+    const window = getFocusedWindowByApp(app);
 
     if (!window) {
       return false;
@@ -83,7 +54,7 @@ class HotkeyListener {
   }
 
   #maybeShowWindow(appConfig: AppConfig): boolean {
-    const window = this.#getFirstWindowByAppConfig(appConfig);
+    const window = findWindowByAppConfig(this.#windowTracker, appConfig);
 
     if (!window) {
       return false;
@@ -147,7 +118,7 @@ class HotkeyListener {
 
   #init() {
     const reinitialise = () => {
-      this.dispose();
+      this.#unregisterListeners();
       this.#init();
     };
 
@@ -171,7 +142,7 @@ class HotkeyListener {
     });
   }
 
-  public dispose() {
+  #unregisterListeners() {
     if (this.#actionMap) {
       this.#actionMap.forEach(({ bindingName }, actionId) => {
         windowManager.removeKeybinding(bindingName);
@@ -179,23 +150,29 @@ class HotkeyListener {
       });
 
       this.#actionMap.clear();
-      this.#actionMap = undefined;
     }
 
     if (typeof this.#appSystemHandlerId === 'number') {
       this.#appSystem.disconnect(this.#appSystemHandlerId);
-      this.#appSystemHandlerId = undefined;
     }
 
     if (typeof this.#displayHandlerId === 'number') {
       global.display.disconnect(this.#displayHandlerId);
-      this.#displayHandlerId = undefined;
     }
 
     if (typeof this.#settingsHandlerId === 'number') {
       this.#settings.disconnect(this.#settingsHandlerId);
-      this.#settingsHandlerId = undefined;
     }
+
+    this.#actionMap = undefined;
+    this.#appSystemHandlerId = undefined;
+    this.#displayHandlerId = undefined;
+    this.#settingsHandlerId = undefined;
+  }
+
+  public dispose() {
+    this.#unregisterListeners();
+    this.#interface.dispose();
   }
 }
 
