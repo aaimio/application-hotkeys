@@ -1,10 +1,10 @@
 {
   "name": "Application Hotkeys",
-  "description": "A GNOME Shell Extension that lets you launch, show, and hide applications through a single hotkey.",
+  "description": "Launch, show, and hide applications through a single hotkey.",
   "gettext-domain": "application-hotkeys@aaimio.github.com",
   "settings-schema": "org.gnome.shell.extensions.application-hotkeys",
   "shell-version": ["45", "46", "47", "48", "49"],
   "url": "https://github.com/aaimio/application-hotkeys",
   "uuid": "application-hotkeys@aaimio.github.com",
-  "version": 2
+  "version": 4
 }
