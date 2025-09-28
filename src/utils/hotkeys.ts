@@ -1,10 +1,6 @@
 import Gdk from 'shims/gi/Gdk';
 import Gtk from 'shims/gi/Gtk';
 
-/**
- * https://github.com/GNOME/gnome-control-center/blob/main/panels/keyboard/keyboard-shortcuts.c
- */
-
 const isForbiddenKeyValue = (keyValue: number) => {
   return [
     /* Navigation keys */
@@ -32,6 +28,9 @@ const isValidAccelerator = (keyValue: number, modifiers: number) => {
   );
 };
 
+/**
+ * https://github.com/GNOME/gnome-control-center/blob/main/panels/keyboard/keyboard-shortcuts.c
+ */
 export const isValidBinding = (keyCode: number, keyValue: number, modifiers: number) => {
   if ((modifiers === 0 || modifiers === Gdk.ModifierType.SHIFT_MASK) && keyCode !== 0) {
     if (

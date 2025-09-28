@@ -1,27 +1,28 @@
-import ExtensionSettings from 'settings/extension-settings';
-import InterfaceSettings from 'settings/interface-settings';
 import Gio from 'shims/gi/Gio';
 import Meta from 'shims/gi/Meta';
 import Shell from 'shims/gi/Shell';
 import { wm as windowManager } from 'shims/resource/org/gnome/shell/ui/main';
 import type { AppConfig, Nullish, WithExternalBindingName } from 'types';
 import { findWindowByAppConfig, getFocusedWindowByApp, isAppMatch } from 'utils/apps';
+import ExtensionUtils from 'utils/extension';
+import InterfaceUtils from 'utils/interface';
 
 class HotkeyListener {
-  #actionMap: Map<number, WithExternalBindingName<AppConfig>> | undefined;
   #appSystem: Shell.AppSystem;
+  #extension: ExtensionUtils;
+  #interface: InterfaceUtils;
+  #settings: Gio.Settings;
+  #windowTracker: Shell.WindowTracker;
+
+  #actionMap: Map<number, WithExternalBindingName<AppConfig>> | undefined;
   #appSystemHandlerId: number | undefined;
   #displayHandlerId: number | undefined;
-  #extension: ExtensionSettings;
-  #interface: InterfaceSettings;
-  #settings: Gio.Settings;
   #settingsHandlerId: number | undefined;
-  #windowTracker: Shell.WindowTracker;
 
   constructor(settings: Gio.Settings) {
     this.#appSystem = Shell.AppSystem.get_default();
-    this.#extension = new ExtensionSettings(settings);
-    this.#interface = new InterfaceSettings();
+    this.#extension = new ExtensionUtils(settings);
+    this.#interface = new InterfaceUtils();
     this.#settings = settings;
     this.#windowTracker = Shell.WindowTracker.get_default();
     this.#init();
@@ -95,6 +96,10 @@ class HotkeyListener {
     }
   }
 
+  /**
+   * Inspiration taken from p2t2p's answer:
+   * https://superuser.com/a/1182899
+   */
   #registerAppHotkey(appConfig: AppConfig) {
     if (!appConfig.hotkey) {
       return;
@@ -125,9 +130,6 @@ class HotkeyListener {
     this.#actionMap = new Map<number, WithExternalBindingName<AppConfig>>();
     this.#appSystemHandlerId = this.#appSystem.connect('installed-changed', reinitialise);
 
-    /**
-     * From p2t2p's answer https://superuser.com/a/1182899
-     */
     this.#displayHandlerId = global.display.connect('accelerator-activated', (_, actionId) => {
       this.#onAcceleratorActivated(actionId);
     });

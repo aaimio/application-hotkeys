@@ -2,7 +2,7 @@ import Gio from 'shims/gi/Gio';
 import type { AppConfig, AppConfigTuple, SerializedAppConfigTuple } from 'types';
 import { appInfoToAppConfig } from 'utils/apps';
 
-class ExtensionSettings {
+class ExtensionUtils {
   #settings: Gio.Settings;
 
   constructor(settings: Gio.Settings) {
@@ -10,7 +10,7 @@ class ExtensionSettings {
   }
 
   get shouldSkipAnimations() {
-    return this.#settings.get_boolean(__SETTINGS_KEY_SKIP_ANIMATIONS__);
+    return this.#settings.get_boolean(__SETTINGS_KEY_DISABLE_ANIMATIONS__);
   }
 
   get serializedAppConfigs() {
@@ -70,6 +70,22 @@ class ExtensionSettings {
     }, []);
   }
 
+  public getFilteredApps() {
+    const configuredAppIds = this.getConfiguredAppIds();
+
+    return Gio.AppInfo.get_all().filter((appInfo) => {
+      if (appInfo.should_show()) {
+        const appId = appInfo.get_id();
+
+        if (appId) {
+          return !configuredAppIds.includes(appId);
+        }
+      }
+
+      return false;
+    });
+  }
+
   public addAppConfig(appConfig: AppConfig) {
     return this.writeSerializedAppConfigs([
       ...this.serializedAppConfigs,
@@ -118,8 +134,8 @@ class ExtensionSettings {
   }
 
   public setShouldSkipAnimations(shouldSkipAnimations: boolean) {
-    return this.#settings.set_boolean(__SETTINGS_KEY_SKIP_ANIMATIONS__, shouldSkipAnimations);
+    return this.#settings.set_boolean(__SETTINGS_KEY_DISABLE_ANIMATIONS__, shouldSkipAnimations);
   }
 }
 
-export default ExtensionSettings;
+export default ExtensionUtils;
