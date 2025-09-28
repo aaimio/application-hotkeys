@@ -24,8 +24,7 @@ There are multiple ways to install:
 
 1. Using
    [Extension Manager](https://flathub.org/en/apps/com.mattjakeman.ExtensionManager)
-   (search for "Application Hotkeys" or
-   [click here to install](gnome-extensions://application-hotkeys%40aaimio.github.com?action=install))
+   (search for "Application Hotkeys")
 2. Through the
    [GNOME Extensions website](https://extensions.gnome.org/extension/8641/application-hotkeys/)
 3. [Each GitHub release](https://github.com/aaimio/application-hotkeys/releases)
