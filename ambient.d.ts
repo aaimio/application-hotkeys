@@ -11,6 +11,6 @@ declare global {
   const __EXTENSION_VERSION__: string;
   const __INTERFACE_SCHEMA_ID__: string;
   const __SETTINGS_KEY_APP_CONFIGS__: string;
+  const __SETTINGS_KEY_DISABLE_ANIMATIONS__: string;
   const __SETTINGS_KEY_ENABLE_ANIMATIONS__: string;
-  const __SETTINGS_KEY_SKIP_ANIMATIONS__: string;
 }

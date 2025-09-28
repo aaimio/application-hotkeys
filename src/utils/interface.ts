@@ -3,7 +3,7 @@ import Gio from 'shims/gi/Gio';
 import { wm } from 'shims/resource/org/gnome/shell/ui/main';
 import type { PatchedWindowManager } from 'types';
 
-class InterfaceSettings {
+class InterfaceUtils {
   #settings: Gio.Settings;
   #originalShouldAnimate: (() => void) | undefined;
   #timeout: GLib.Source | undefined;
@@ -50,4 +50,4 @@ class InterfaceSettings {
   }
 }
 
-export default InterfaceSettings;
+export default InterfaceUtils;

@@ -5,9 +5,9 @@
       <default>[]</default>
       <summary>A serialized list of application and hotkey configurations.</summary>
     </key>
-    <key name="skip-animations" type="b">
+    <key name="disable-animations" type="b">
       <default>false</default>
-      <summary>Whether an attempt is made to skip animations for show and hide events.</summary>
+      <summary>Whether show and hide animations are suppressed for a snappier experience.</summary>
     </key>
   </schema>
 </schemalist>
