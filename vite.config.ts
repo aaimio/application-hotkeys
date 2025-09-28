@@ -14,8 +14,8 @@ const config = defineConfig({
     __EXTENSION_VERSION__: JSON.stringify(`v${metadata.version}`),
     __INTERFACE_SCHEMA_ID__: JSON.stringify('org.gnome.desktop.interface'),
     __SETTINGS_KEY_APP_CONFIGS__: JSON.stringify('configs'),
+    __SETTINGS_KEY_DISABLE_ANIMATIONS__: JSON.stringify('disable-animations'),
     __SETTINGS_KEY_ENABLE_ANIMATIONS__: JSON.stringify('enable-animations'),
-    __SETTINGS_KEY_SKIP_ANIMATIONS__: JSON.stringify('skip-animations'),
   },
 
   build: {
