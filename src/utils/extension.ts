@@ -93,7 +93,7 @@ class ExtensionUtils {
     ]);
   }
 
-  public removeAppConfigByAppId = (targetAppId: string) => {
+  public removeAppConfigByAppId(targetAppId: string) {
     const serializedAppConfigs = [...this.serializedAppConfigs];
 
     const idx = serializedAppConfigs.findIndex((serializedAppConfig) => {
@@ -107,7 +107,7 @@ class ExtensionUtils {
     }
 
     return false;
-  };
+  }
 
   public updateAppConfigById(appId: string, properties: Pick<AppConfig, 'hotkey'>) {
     const appConfigs = this.getAppConfigs();
