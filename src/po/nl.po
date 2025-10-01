@@ -1,73 +1,74 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-10-01 12:27+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: English <https://hosted.weblate.org/projects/"
-"application-hotkeys/extension/en/>\n"
-"Language: en\n"
+"PO-Revision-Date: 2025-10-01 12:33+0000\n"
+"Last-Translator: aaimio <aaim@protonmail.com>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/"
+"application-hotkeys/extension/nl/>\n"
+"Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 5.14-dev\n"
-"Content-Transfer-Encoding: 8bit\n"
 
 #: src/prefs.ts:136
 #: src/prefs.ts:190
 msgid "<unknown>"
-msgstr "<unknown>"
+msgstr "<onbekend>"
 
 #: src/prefs.ts:402
 msgid "About"
-msgstr "About"
+msgstr "Over"
 
 #: src/prefs.ts:336
 msgid "Add application"
-msgstr "Add application"
+msgstr "Applicatie toevoegen"
 
 #: src/prefs.ts:202
 msgid "Application"
-msgstr "Application"
+msgstr "Applicatie"
 
 #: src/prefs.ts:366
 msgid "Attempts to suppress show and hide animations for a snappier experience."
 msgstr ""
-"Attempts to suppress show and hide animations for a snappier experience."
+"Probeert animaties voor het tonen en verbergen van applicaties te "
+"onderdrukken."
 
 #: src/prefs.ts:228
 msgid "Cancel"
-msgstr "Cancel"
+msgstr "Annuleer"
 
 #: src/prefs.ts:381
 msgid "Configuration"
-msgstr "Configuration"
+msgstr "Configuratie"
 
 #: src/prefs.ts:229
 msgid "Confirm"
-msgstr "Confirm"
+msgstr "Bevestig"
 
 #: src/prefs.ts:391
 msgid "Experimental"
-msgstr "Experimental"
+msgstr "Experimenteel"
 
 #: src/prefs.ts:271
 msgid "Not set"
-msgstr "Not set"
+msgstr "Niet ingesteld"
 
 #: src/prefs.ts:258
 msgid "Press a hotkey, Escape to cancel, or Backspace to clear."
-msgstr "Press a hotkey, Escape to cancel, or Backspace to clear."
+msgstr "Druk op een hotkey, Escape om te annuleren, of Backspace om te wissen."
 
 #: src/prefs.ts:242
 msgid "Register hotkey"
-msgstr "Register hotkey"
+msgstr "Registreer hotkey"
 
 #: src/prefs.ts:310
 msgid "Remove"
-msgstr "Remove"
+msgstr "Verwijder"
 
 #: src/prefs.ts:222
 msgid "Select application"
-msgstr "Select application"
+msgstr "Selecteer applicatie"
 
 #: src/prefs.ts:365
 msgid "Skip animations"
-msgstr "Skip animations"
+msgstr "Animaties overslaan"
