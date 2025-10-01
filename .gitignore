@@ -4,4 +4,3 @@
 dist
 node_modules
 src/schemas/gschemas.compiled
-i18n.pot

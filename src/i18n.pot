@@ -1,0 +1,64 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#: src/prefs.ts:136
+#: src/prefs.ts:190
+msgid "<unknown>"
+msgstr ""
+
+#: src/prefs.ts:402
+msgid "About"
+msgstr ""
+
+#: src/prefs.ts:336
+msgid "Add application"
+msgstr ""
+
+#: src/prefs.ts:202
+msgid "Application"
+msgstr ""
+
+#: src/prefs.ts:366
+msgid "Attempts to suppress show and hide animations for a snappier experience."
+msgstr ""
+
+#: src/prefs.ts:228
+msgid "Cancel"
+msgstr ""
+
+#: src/prefs.ts:381
+msgid "Configuration"
+msgstr ""
+
+#: src/prefs.ts:229
+msgid "Confirm"
+msgstr ""
+
+#: src/prefs.ts:391
+msgid "Experimental"
+msgstr ""
+
+#: src/prefs.ts:271
+msgid "Not set"
+msgstr ""
+
+#: src/prefs.ts:258
+msgid "Press a hotkey, Escape to cancel, or Backspace to clear."
+msgstr ""
+
+#: src/prefs.ts:242
+msgid "Register hotkey"
+msgstr ""
+
+#: src/prefs.ts:310
+msgid "Remove"
+msgstr ""
+
+#: src/prefs.ts:222
+msgid "Select application"
+msgstr ""
+
+#: src/prefs.ts:365
+msgid "Skip animations"
+msgstr ""
