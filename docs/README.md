@@ -51,7 +51,8 @@ The easiest way to get started is by using the devcontainer
    - `dbus-run-session -- gnome-shell --nested --wayland` (≤48)
    - `dbus-run-session -- gnome-shell --devkit` (≥49)
 
-For a local approach:
+<details>
+  <summary>For a local approach:</summary>
 
 1. `git clone git@github.com:aaimio/application-hotkeys.git`
 2. `pnpm install` ([install pnpm](https://pnpm.io/installation))
@@ -60,3 +61,11 @@ For a local approach:
 4. Start a nested GNOME Shell for testing:
    - `dbus-run-session -- gnome-shell --nested --wayland` (≤48)
    - `dbus-run-session -- gnome-shell --devkit` (≥49)
+
+</details>
+
+### Translations
+
+Translations are done through
+[Weblate](https://hosted.weblate.org/projects/application-hotkeys/), feel free
+to contribute!
