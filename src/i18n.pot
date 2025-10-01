@@ -1,64 +1,73 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2025-10-01 12:27+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: English <https://hosted.weblate.org/projects/"
+"application-hotkeys/extension/en/>\n"
+"Language: en\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.14-dev\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: src/prefs.ts:136
 #: src/prefs.ts:190
 msgid "<unknown>"
-msgstr ""
+msgstr "<unknown>"
 
 #: src/prefs.ts:402
 msgid "About"
-msgstr ""
+msgstr "About"
 
 #: src/prefs.ts:336
 msgid "Add application"
-msgstr ""
+msgstr "Add application"
 
 #: src/prefs.ts:202
 msgid "Application"
-msgstr ""
+msgstr "Application"
 
 #: src/prefs.ts:366
 msgid "Attempts to suppress show and hide animations for a snappier experience."
 msgstr ""
+"Attempts to suppress show and hide animations for a snappier experience."
 
 #: src/prefs.ts:228
 msgid "Cancel"
-msgstr ""
+msgstr "Cancel"
 
 #: src/prefs.ts:381
 msgid "Configuration"
-msgstr ""
+msgstr "Configuration"
 
 #: src/prefs.ts:229
 msgid "Confirm"
-msgstr ""
+msgstr "Confirm"
 
 #: src/prefs.ts:391
 msgid "Experimental"
-msgstr ""
+msgstr "Experimental"
 
 #: src/prefs.ts:271
 msgid "Not set"
-msgstr ""
+msgstr "Not set"
 
 #: src/prefs.ts:258
 msgid "Press a hotkey, Escape to cancel, or Backspace to clear."
-msgstr ""
+msgstr "Press a hotkey, Escape to cancel, or Backspace to clear."
 
 #: src/prefs.ts:242
 msgid "Register hotkey"
-msgstr ""
+msgstr "Register hotkey"
 
 #: src/prefs.ts:310
 msgid "Remove"
-msgstr ""
+msgstr "Remove"
 
 #: src/prefs.ts:222
 msgid "Select application"
-msgstr ""
+msgstr "Select application"
 
 #: src/prefs.ts:365
 msgid "Skip animations"
-msgstr ""
+msgstr "Skip animations"
