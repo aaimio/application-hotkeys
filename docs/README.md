@@ -69,3 +69,5 @@ The easiest way to get started is by using the devcontainer
 Translations are done through
 [Weblate](https://hosted.weblate.org/projects/application-hotkeys/), feel free
 to contribute!
+
+[![Weblate translation status](https://hosted.weblate.org/widget/application-hotkeys/extension/multi-green.svg)](https://hosted.weblate.org/engage/application-hotkeys/)
