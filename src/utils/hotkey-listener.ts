@@ -8,28 +8,39 @@ import ExtensionUtils from 'utils/extension';
 import InterfaceUtils from 'utils/interface';
 
 class HotkeyListener {
-  #appSystem: Shell.AppSystem;
-  #extension: ExtensionUtils;
-  #interface: InterfaceUtils;
   #settings: Gio.Settings;
-  #windowTracker: Shell.WindowTracker;
-
   #actionMap: Map<number, WithExternalBindingName<AppConfig>> | undefined;
+  #appSystem: Shell.AppSystem | undefined;
   #appSystemHandlerId: number | undefined;
   #displayHandlerId: number | undefined;
+  #extension: ExtensionUtils | undefined;
+  #interface: InterfaceUtils | undefined;
   #settingsHandlerId: number | undefined;
+  #windowTracker: Shell.WindowTracker | undefined;
 
   constructor(settings: Gio.Settings) {
-    this.#appSystem = Shell.AppSystem.get_default();
-    this.#extension = new ExtensionUtils(settings);
-    this.#interface = new InterfaceUtils();
     this.#settings = settings;
-    this.#windowTracker = Shell.WindowTracker.get_default();
     this.#init();
   }
 
+  get appSystem() {
+    return (this.#appSystem ??= Shell.AppSystem.get_default());
+  }
+
+  get extension() {
+    return (this.#extension ??= new ExtensionUtils(this.#settings));
+  }
+
+  get interface() {
+    return (this.#interface ??= new InterfaceUtils());
+  }
+
+  get windowTracker() {
+    return (this.#windowTracker ??= Shell.WindowTracker.get_default());
+  }
+
   #maybeMoveOrHideWindow(appConfig: AppConfig): boolean {
-    const app = this.#windowTracker.get_focus_app();
+    const app = this.windowTracker.get_focus_app();
 
     if (!isAppMatch(app, appConfig)) {
       return false;
@@ -41,7 +52,7 @@ class HotkeyListener {
       return false;
     }
 
-    this.#interface.maybeSuppressAnimation(this.#extension.shouldSkipAnimations, () => {
+    this.interface.maybeSuppressAnimation(this.extension.shouldDisableAnimations, () => {
       const activeMonitorIdx = global.display.get_current_monitor();
 
       if (window.get_monitor() !== activeMonitorIdx) {
@@ -55,13 +66,13 @@ class HotkeyListener {
   }
 
   #maybeShowWindow(appConfig: AppConfig): boolean {
-    const window = findWindowByAppConfig(this.#windowTracker, appConfig);
+    const window = findWindowByAppConfig(this.windowTracker, appConfig);
 
     if (!window) {
       return false;
     }
 
-    this.#interface.maybeSuppressAnimation(this.#extension.shouldSkipAnimations, () => {
+    this.interface.maybeSuppressAnimation(this.extension.shouldDisableAnimations, () => {
       if (!window.get_workspace().active) {
         window.change_workspace(global.get_workspace_manager().get_active_workspace());
       }
@@ -122,24 +133,23 @@ class HotkeyListener {
   }
 
   #init() {
-    const reinitialise = () => {
+    this.#actionMap = new Map<number, WithExternalBindingName<AppConfig>>();
+
+    this.#appSystemHandlerId = this.appSystem.connect('installed-changed', () => {
       this.#unregisterListeners();
       this.#init();
-    };
-
-    this.#actionMap = new Map<number, WithExternalBindingName<AppConfig>>();
-    this.#appSystemHandlerId = this.#appSystem.connect('installed-changed', reinitialise);
+    });
 
     this.#displayHandlerId = global.display.connect('accelerator-activated', (_, actionId) => {
       this.#onAcceleratorActivated(actionId);
     });
 
-    this.#settingsHandlerId = this.#settings.connect(
-      `changed::${__SETTINGS_KEY_APP_CONFIGS__}`,
-      reinitialise,
-    );
+    this.#settingsHandlerId = this.#settings.connect(`changed::${__SETTINGS_APP_CONFIGS__}`, () => {
+      this.#unregisterListeners();
+      this.#init();
+    });
 
-    this.#extension.getAppConfigs().forEach((appConfig) => {
+    this.extension.appConfigs.forEach((appConfig) => {
       this.#registerAppHotkey(appConfig);
     });
   }
@@ -152,29 +162,39 @@ class HotkeyListener {
       });
 
       this.#actionMap.clear();
+      this.#actionMap = undefined;
     }
 
     if (typeof this.#appSystemHandlerId === 'number') {
-      this.#appSystem.disconnect(this.#appSystemHandlerId);
+      this.appSystem.disconnect(this.#appSystemHandlerId);
+      this.#appSystemHandlerId = undefined;
     }
 
     if (typeof this.#displayHandlerId === 'number') {
       global.display.disconnect(this.#displayHandlerId);
+      this.#displayHandlerId = undefined;
     }
 
     if (typeof this.#settingsHandlerId === 'number') {
       this.#settings.disconnect(this.#settingsHandlerId);
+      this.#settingsHandlerId = undefined;
     }
-
-    this.#actionMap = undefined;
-    this.#appSystemHandlerId = undefined;
-    this.#displayHandlerId = undefined;
-    this.#settingsHandlerId = undefined;
   }
 
   public dispose() {
     this.#unregisterListeners();
-    this.#interface.dispose();
+
+    this.extension.dispose();
+    this.interface.dispose();
+
+    this.#actionMap = undefined;
+    this.#appSystem = undefined;
+    this.#appSystemHandlerId = undefined;
+    this.#displayHandlerId = undefined;
+    this.#extension = undefined;
+    this.#interface = undefined;
+    this.#settingsHandlerId = undefined;
+    this.#windowTracker = undefined;
   }
 }
 

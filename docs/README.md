@@ -1,7 +1,7 @@
 # Application Hotkeys
 
-A GNOME Shell Extension that lets you launch, show, and hide applications
-through a single hotkey.
+A GNOME Shell Extension that lets you launch, show, and hide applications using
+hotkeys.
 
 - **Launch** an application if it's not running
 - **Show** an application if it's running, but not focused
@@ -11,10 +11,10 @@ through a single hotkey.
 
 > [!NOTE]
 >
-> - Apps are always moved to the active workspace
-> - Apps are always moved to the monitor where your pointer is
-> - If an app has multiple windows open, they are cycled
-> - Showing and hiding apps happens instantly (optional + experimental)
+> - Applications are always moved to the active workspace
+> - Applications are always moved to the monitor where your pointer is
+> - If an application has multiple windows open, they are cycled
+> - Showing and hiding applications happens instantly (optional)
 
 ## Installation
 
