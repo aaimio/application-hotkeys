@@ -1,73 +1,64 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-10-01 12:27+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: English <https://hosted.weblate.org/projects/"
-"application-hotkeys/extension/en/>\n"
-"Language: en\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.14-dev\n"
-"Content-Transfer-Encoding: 8bit\n"
 
-#: src/prefs.ts:136
-#: src/prefs.ts:190
+#: src/utils/preferences.ts:108
+#: src/utils/preferences.ts:162
 msgid "<unknown>"
-msgstr "<unknown>"
-
-#: src/prefs.ts:402
-msgid "About"
-msgstr "About"
-
-#: src/prefs.ts:336
-msgid "Add application"
-msgstr "Add application"
-
-#: src/prefs.ts:202
-msgid "Application"
-msgstr "Application"
-
-#: src/prefs.ts:366
-msgid "Attempts to suppress show and hide animations for a snappier experience."
 msgstr ""
-"Attempts to suppress show and hide animations for a snappier experience."
 
-#: src/prefs.ts:228
+#: src/utils/preferences.ts:372
+msgid "About"
+msgstr ""
+
+#: src/utils/preferences.ts:308
+msgid "Add application"
+msgstr ""
+
+#: src/utils/preferences.ts:174
+msgid "Application"
+msgstr ""
+
+#: src/utils/preferences.ts:200
 msgid "Cancel"
-msgstr "Cancel"
+msgstr ""
 
-#: src/prefs.ts:381
+#: src/utils/preferences.ts:351
 msgid "Configuration"
-msgstr "Configuration"
+msgstr ""
 
-#: src/prefs.ts:229
+#: src/utils/preferences.ts:201
 msgid "Confirm"
-msgstr "Confirm"
+msgstr ""
 
-#: src/prefs.ts:391
+#: src/utils/preferences.ts:337
+msgid "Disable animations"
+msgstr ""
+
+#: src/utils/preferences.ts:361
 msgid "Experimental"
-msgstr "Experimental"
+msgstr ""
 
-#: src/prefs.ts:271
+#: src/utils/preferences.ts:243
 msgid "Not set"
-msgstr "Not set"
+msgstr ""
 
-#: src/prefs.ts:258
+#: src/utils/preferences.ts:230
 msgid "Press a hotkey, Escape to cancel, or Backspace to clear."
-msgstr "Press a hotkey, Escape to cancel, or Backspace to clear."
+msgstr ""
 
-#: src/prefs.ts:242
+#: src/utils/preferences.ts:214
 msgid "Register hotkey"
-msgstr "Register hotkey"
+msgstr ""
 
-#: src/prefs.ts:310
+#: src/utils/preferences.ts:282
 msgid "Remove"
-msgstr "Remove"
+msgstr ""
 
-#: src/prefs.ts:222
+#: src/utils/preferences.ts:194
 msgid "Select application"
-msgstr "Select application"
+msgstr ""
 
-#: src/prefs.ts:365
-msgid "Skip animations"
-msgstr "Skip animations"
+#: src/utils/preferences.ts:338
+msgid "Suppress show and hide animations for a snappier experience."
+msgstr ""

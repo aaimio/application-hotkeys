@@ -131,7 +131,7 @@ class Preferences {
 
   #onSkipAnimationsChange(toggle: Gtk.Switch) {
     return () => {
-      this.#extension.setShouldSkipAnimations(toggle.active);
+      this.#extension.writeShouldSkipAnimations(toggle.active);
     };
   }
 
@@ -323,7 +323,7 @@ class Preferences {
 
   #createSkipAnimationsSwitch() {
     const toggle = new Gtk.Switch({
-      active: this.#extension.shouldSkipAnimations,
+      active: this.#extension.shouldDisableAnimations,
       valign: Gtk.Align.CENTER,
     });
 
@@ -344,15 +344,13 @@ class Preferences {
   }
 
   #maybeCreateAppGroup() {
-    const appConfigs = this.#extension.getAppConfigs();
-
-    if (appConfigs.length === 0) {
+    if (this.#extension.appConfigs.length === 0) {
       return undefined;
     }
 
     const group = new Adw.PreferencesGroup({ title: gettext('Configuration') });
 
-    appConfigs.forEach((appConfig) => {
+    this.#extension.appConfigs.forEach((appConfig) => {
       group.add(this.#createAppRow(appConfig));
     });
 
@@ -431,7 +429,7 @@ class Preferences {
 
     init();
 
-    this.#settings.connect(`changed::${__SETTINGS_KEY_APP_CONFIGS__}`, init);
+    this.#settings.connect(`changed::${__SETTINGS_APP_CONFIGS__}`, init);
   }
 }
 

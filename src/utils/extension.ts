@@ -4,50 +4,52 @@ import { appInfoToAppConfig } from 'utils/apps';
 
 class ExtensionUtils {
   #settings: Gio.Settings;
+  #appConfigs: AppConfig[] | undefined;
+  #configuredAppIds: string[] | undefined;
+  #serializedAppConfigs: SerializedAppConfigTuple[] | undefined;
+  #settingsHandlerIds: number[] | undefined;
+  #shouldDisableAnimations: boolean | undefined;
 
   constructor(settings: Gio.Settings) {
     this.#settings = settings;
+
+    this.#settingsHandlerIds = [
+      settings.connect(`changed::${__SETTINGS_APP_CONFIGS__}`, () => {
+        this.#appConfigs = undefined;
+        this.#configuredAppIds = undefined;
+        this.#serializedAppConfigs = undefined;
+      }),
+
+      settings.connect(`changed::${__SETTINGS_DISABLE_ANIMATIONS__}`, () => {
+        this.#shouldDisableAnimations = undefined;
+      }),
+    ];
   }
 
-  get shouldSkipAnimations() {
-    return this.#settings.get_boolean(__SETTINGS_KEY_DISABLE_ANIMATIONS__);
+  get appConfigs() {
+    return (this.#appConfigs ??= this.#getAppConfigs(this.serializedAppConfigs));
+  }
+
+  get configuredAppIds() {
+    return (this.#configuredAppIds ??= this.#getConfiguredAppIds(this.serializedAppConfigs));
   }
 
   get serializedAppConfigs() {
-    return this.#settings.get_strv(__SETTINGS_KEY_APP_CONFIGS__) as SerializedAppConfigTuple[];
+    return (this.#serializedAppConfigs ??= this.#settings.get_strv(
+      __SETTINGS_APP_CONFIGS__,
+    ) as SerializedAppConfigTuple[]);
   }
 
-  public writeSerializedAppConfigs(serializedAppConfigs: SerializedAppConfigTuple[]) {
-    return this.#settings.set_strv(__SETTINGS_KEY_APP_CONFIGS__, serializedAppConfigs);
-  }
-
-  public serializeAppConfig({ id, hotkey }: AppConfig) {
-    return JSON.stringify([id, hotkey] satisfies AppConfigTuple) as SerializedAppConfigTuple;
-  }
-
-  public deserializeAppConfig(serializedAppConfig: SerializedAppConfigTuple) {
-    try {
-      const [appId, hotkey] = JSON.parse(serializedAppConfig) as AppConfigTuple;
-
-      if (appId && typeof appId === 'string' && typeof hotkey === 'string') {
-        return [appId, hotkey];
-      }
-    } catch {
-      /* empty */
+  get shouldDisableAnimations() {
+    if (typeof this.#shouldDisableAnimations === 'undefined') {
+      this.#shouldDisableAnimations = this.#settings.get_boolean(__SETTINGS_DISABLE_ANIMATIONS__);
     }
 
-    return undefined;
+    return this.#shouldDisableAnimations;
   }
 
-  public getConfiguredAppIds() {
-    return this.serializedAppConfigs.reduce((accumulator: string[], serializedAppConfig) => {
-      const [appId] = this.deserializeAppConfig(serializedAppConfig) ?? [];
-      return appId ? [...accumulator, appId] : accumulator;
-    }, []);
-  }
-
-  public getAppConfigs() {
-    return this.serializedAppConfigs.reduce((appConfigs: AppConfig[], serializedAppConfig) => {
+  #getAppConfigs(serializedAppConfigs: SerializedAppConfigTuple[]) {
+    return serializedAppConfigs.reduce((appConfigs: AppConfig[], serializedAppConfig) => {
       const [appId, hotkey] = this.deserializeAppConfig(serializedAppConfig) ?? [];
 
       if (!appId) {
@@ -70,15 +72,42 @@ class ExtensionUtils {
     }, []);
   }
 
-  public getFilteredApps() {
-    const configuredAppIds = this.getConfiguredAppIds();
+  #getConfiguredAppIds(serializedAppConfigs: SerializedAppConfigTuple[]) {
+    return serializedAppConfigs.reduce((accumulator: string[], serializedAppConfig) => {
+      const [appId] = this.deserializeAppConfig(serializedAppConfig) ?? [];
+      return appId ? [...accumulator, appId] : accumulator;
+    }, []);
+  }
 
+  public writeSerializedAppConfigs(serializedAppConfigs: SerializedAppConfigTuple[]) {
+    return this.#settings.set_strv(__SETTINGS_APP_CONFIGS__, serializedAppConfigs);
+  }
+
+  public serializeAppConfig({ id, hotkey }: AppConfig) {
+    return JSON.stringify([id, hotkey] satisfies AppConfigTuple) as SerializedAppConfigTuple;
+  }
+
+  public deserializeAppConfig(serializedAppConfig: SerializedAppConfigTuple) {
+    try {
+      const [appId, hotkey] = JSON.parse(serializedAppConfig) as AppConfigTuple;
+
+      if (appId && typeof appId === 'string' && typeof hotkey === 'string') {
+        return [appId, hotkey];
+      }
+    } catch {
+      /* empty */
+    }
+
+    return undefined;
+  }
+
+  public getFilteredApps() {
     return Gio.AppInfo.get_all().filter((appInfo) => {
       if (appInfo.should_show()) {
         const appId = appInfo.get_id();
 
         if (appId) {
-          return !configuredAppIds.includes(appId);
+          return !this.configuredAppIds.includes(appId);
         }
       }
 
@@ -110,9 +139,7 @@ class ExtensionUtils {
   }
 
   public updateAppConfigById(appId: string, properties: Pick<AppConfig, 'hotkey'>) {
-    const appConfigs = this.getAppConfigs();
-
-    for (const appConfig of appConfigs) {
+    for (const appConfig of this.appConfigs) {
       if (appConfig.id !== appId) {
         continue;
       }
@@ -121,7 +148,7 @@ class ExtensionUtils {
         appConfig.hotkey = properties.hotkey;
 
         return this.writeSerializedAppConfigs(
-          appConfigs.map((appConfig) => {
+          this.appConfigs.map((appConfig) => {
             return this.serializeAppConfig(appConfig);
           }),
         );
@@ -133,8 +160,22 @@ class ExtensionUtils {
     return false;
   }
 
-  public setShouldSkipAnimations(shouldSkipAnimations: boolean) {
-    return this.#settings.set_boolean(__SETTINGS_KEY_DISABLE_ANIMATIONS__, shouldSkipAnimations);
+  public writeShouldSkipAnimations(shouldSkipAnimations: boolean) {
+    return this.#settings.set_boolean(__SETTINGS_DISABLE_ANIMATIONS__, shouldSkipAnimations);
+  }
+
+  public dispose() {
+    if (this.#settingsHandlerIds) {
+      this.#settingsHandlerIds.forEach((handlerId) => {
+        this.#settings.disconnect(handlerId);
+      });
+    }
+
+    this.#appConfigs = undefined;
+    this.#configuredAppIds = undefined;
+    this.#serializedAppConfigs = undefined;
+    this.#settingsHandlerIds = undefined;
+    this.#shouldDisableAnimations = undefined;
   }
 }
 
