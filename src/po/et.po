@@ -1,0 +1,72 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-10-21 12:02+0000\n"
+"Last-Translator: Priit Jõerüüt <jrthwlate@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Estonian <https://hosted.weblate.org/projects/"
+"application-hotkeys/extension/et/>\n"
+"Language: et\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.14-dev\n"
+
+#: src/utils/preferences.ts:108
+#: src/utils/preferences.ts:162
+msgid "<unknown>"
+msgstr "<teadmata>"
+
+#: src/utils/preferences.ts:372
+msgid "About"
+msgstr "Rakenduse teave"
+
+#: src/utils/preferences.ts:308
+msgid "Add application"
+msgstr "Lisa rakendus"
+
+#: src/utils/preferences.ts:174
+msgid "Application"
+msgstr "Rakendus"
+
+#: src/utils/preferences.ts:200
+msgid "Cancel"
+msgstr "Katkesta"
+
+#: src/utils/preferences.ts:351
+msgid "Configuration"
+msgstr "Seadistused"
+
+#: src/utils/preferences.ts:201
+msgid "Confirm"
+msgstr "Kinnita"
+
+#: src/utils/preferences.ts:337
+msgid "Disable animations"
+msgstr "Lülita animatsioonid välja"
+
+#: src/utils/preferences.ts:361
+msgid "Experimental"
+msgstr "Katseline"
+
+#: src/utils/preferences.ts:243
+msgid "Not set"
+msgstr "Määramata"
+
+#: src/utils/preferences.ts:230
+msgid "Press a hotkey, Escape to cancel, or Backspace to clear."
+msgstr "Vajuta kiirklahvi, Escape katkestab, Backspace tühjendab andmed."
+
+#: src/utils/preferences.ts:214
+msgid "Register hotkey"
+msgstr "Registreeri kiirklahv"
+
+#: src/utils/preferences.ts:282
+msgid "Remove"
+msgstr "Eemalda"
+
+#: src/utils/preferences.ts:194
+msgid "Select application"
+msgstr "Vali rakendus"
+
+#: src/utils/preferences.ts:338
+msgid "Suppress show and hide animations for a snappier experience."
+msgstr "Kiirema kasutuse nimel lülita animatsioonid välja."
