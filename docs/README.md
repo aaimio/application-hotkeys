@@ -71,3 +71,9 @@ Translations are done through
 to contribute!
 
 [![Weblate translation status](https://hosted.weblate.org/widget/application-hotkeys/extension/multi-green.svg)](https://hosted.weblate.org/engage/application-hotkeys/)
+
+Special thanks to the contributor(s) below:
+
+| Translator    | Language    |
+| ------------- | ----------- |
+| Priit Jõerüüt | 🇪🇪 Estonian |
