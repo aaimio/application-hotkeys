@@ -1,69 +1,74 @@
 msgid ""
 msgstr ""
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-11-05 10:50+0000\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/"
+"application-hotkeys/extension/cs/>\n"
 "Language: cs\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
+"X-Generator: Weblate 5.14.1-dev\n"
 
 #: src/utils/preferences.ts:108
 #: src/utils/preferences.ts:162
 msgid "<unknown>"
-msgstr ""
+msgstr "<neznámé>"
 
 #: src/utils/preferences.ts:372
 msgid "About"
-msgstr ""
+msgstr "O tomto rozšíření"
 
 #: src/utils/preferences.ts:308
 msgid "Add application"
-msgstr ""
+msgstr "Přidat aplikaci"
 
 #: src/utils/preferences.ts:174
 msgid "Application"
-msgstr ""
+msgstr "Aplikace"
 
 #: src/utils/preferences.ts:200
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušit"
 
 #: src/utils/preferences.ts:351
 msgid "Configuration"
-msgstr ""
+msgstr "Nastavení"
 
 #: src/utils/preferences.ts:201
 msgid "Confirm"
-msgstr ""
+msgstr "Potvrdit"
 
 #: src/utils/preferences.ts:337
 msgid "Disable animations"
-msgstr ""
+msgstr "Vypnout animace"
 
 #: src/utils/preferences.ts:361
 msgid "Experimental"
-msgstr ""
+msgstr "Experimentální"
 
 #: src/utils/preferences.ts:243
 msgid "Not set"
-msgstr ""
+msgstr "Nenastaveno"
 
 #: src/utils/preferences.ts:230
 msgid "Press a hotkey, Escape to cancel, or Backspace to clear."
 msgstr ""
+"Stiskněte klávesu "
+"(nebo zrušte stisknutím Esc, případě vymažte pomocí Backspace)."
 
 #: src/utils/preferences.ts:214
 msgid "Register hotkey"
-msgstr ""
+msgstr "Zaregistrovat klávesu"
 
 #: src/utils/preferences.ts:282
 msgid "Remove"
-msgstr ""
+msgstr "Odebrat"
 
 #: src/utils/preferences.ts:194
 msgid "Select application"
-msgstr ""
+msgstr "Vyberte aplikaci"
 
 #: src/utils/preferences.ts:338
 msgid "Suppress show and hide animations for a snappier experience."
-msgstr ""
+msgstr "Potlačit animace zobrazení a skrytí za účelem pohotovější odezvy."
