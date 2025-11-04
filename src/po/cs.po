@@ -1,0 +1,69 @@
+msgid ""
+msgstr ""
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: cs\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: src/utils/preferences.ts:108
+#: src/utils/preferences.ts:162
+msgid "<unknown>"
+msgstr ""
+
+#: src/utils/preferences.ts:372
+msgid "About"
+msgstr ""
+
+#: src/utils/preferences.ts:308
+msgid "Add application"
+msgstr ""
+
+#: src/utils/preferences.ts:174
+msgid "Application"
+msgstr ""
+
+#: src/utils/preferences.ts:200
+msgid "Cancel"
+msgstr ""
+
+#: src/utils/preferences.ts:351
+msgid "Configuration"
+msgstr ""
+
+#: src/utils/preferences.ts:201
+msgid "Confirm"
+msgstr ""
+
+#: src/utils/preferences.ts:337
+msgid "Disable animations"
+msgstr ""
+
+#: src/utils/preferences.ts:361
+msgid "Experimental"
+msgstr ""
+
+#: src/utils/preferences.ts:243
+msgid "Not set"
+msgstr ""
+
+#: src/utils/preferences.ts:230
+msgid "Press a hotkey, Escape to cancel, or Backspace to clear."
+msgstr ""
+
+#: src/utils/preferences.ts:214
+msgid "Register hotkey"
+msgstr ""
+
+#: src/utils/preferences.ts:282
+msgid "Remove"
+msgstr ""
+
+#: src/utils/preferences.ts:194
+msgid "Select application"
+msgstr ""
+
+#: src/utils/preferences.ts:338
+msgid "Suppress show and hide animations for a snappier experience."
+msgstr ""
