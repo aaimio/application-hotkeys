@@ -77,3 +77,4 @@ Special thanks to the contributor(s) below:
 | Translator    | Language    |
 | ------------- | ----------- |
 | Priit Jõerüüt | 🇪🇪 Estonian |
+| Pavel Borecki | 🇨🇿 Czech    |
