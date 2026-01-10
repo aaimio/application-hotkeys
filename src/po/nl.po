@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2026-01-10 03:49+0000\n"
-"Last-Translator: aaimio <aaim@protonmail.com>\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/application-"
 "hotkeys/extension/nl/>\n"
 "Language: nl\n"
