@@ -1,14 +1,14 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-10-01 12:33+0000\n"
+"PO-Revision-Date: 2026-01-10 03:49+0000\n"
 "Last-Translator: aaimio <aaim@protonmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/"
-"application-hotkeys/extension/nl/>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/application-"
+"hotkeys/extension/nl/>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 #: src/prefs.ts:136
 #: src/prefs.ts:190
