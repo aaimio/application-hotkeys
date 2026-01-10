@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-01-10 03:49+0000\n"
+"PO-Revision-Date: 2026-01-10 03:54+0000\n"
 "Last-Translator: Priit Jõerüüt <jrthwlate@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/application-"
 "hotkeys/extension/et/>\n"
