@@ -1,14 +1,14 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-11-05 10:50+0000\n"
+"PO-Revision-Date: 2026-01-10 03:49+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/"
-"application-hotkeys/extension/cs/>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/application-"
+"hotkeys/extension/cs/>\n"
 "Language: cs\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 5.14.1-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 #: src/utils/preferences.ts:108
 #: src/utils/preferences.ts:162
@@ -54,8 +54,8 @@ msgstr "Nenastaveno"
 #: src/utils/preferences.ts:230
 msgid "Press a hotkey, Escape to cancel, or Backspace to clear."
 msgstr ""
-"Stiskněte klávesu "
-"(nebo zrušte stisknutím Esc, případě vymažte pomocí Backspace)."
+"Stiskněte klávesu (nebo zrušte stisknutím Esc, případě vymažte pomocí "
+"Backspace)."
 
 #: src/utils/preferences.ts:214
 msgid "Register hotkey"
