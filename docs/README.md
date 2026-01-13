@@ -74,7 +74,8 @@ to contribute!
 
 Special thanks to the contributor(s) below:
 
-| Translator    | Language    |
-| ------------- | ----------- |
-| Priit Jõerüüt | 🇪🇪 Estonian |
-| Pavel Borecki | 🇨🇿 Czech    |
+| Translator                                      | Language              |
+| ----------------------------------------------- | --------------------- |
+| Priit Jõerüüt                                   | 🇪🇪 Estonian           |
+| Pavel Borecki ([p-bo](https://github.com/p-bo)) | 🇨🇿 Czech              |
+| [yougg](https://github.com/yougg)               | 🇨🇳 Simplified Chinese |
