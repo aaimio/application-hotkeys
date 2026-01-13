@@ -1,69 +1,72 @@
 msgid ""
 msgstr ""
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2026-01-13 12:04+0000\n"
+"Last-Translator: yougg <joe2qq@gmail.com>\n"
+"Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
+"projects/application-hotkeys/extension/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.15.2-dev\n"
 
 #: src/utils/preferences.ts:108
 #: src/utils/preferences.ts:162
 msgid "<unknown>"
-msgstr ""
+msgstr "<未知>"
 
 #: src/utils/preferences.ts:372
 msgid "About"
-msgstr ""
+msgstr "关于"
 
 #: src/utils/preferences.ts:308
 msgid "Add application"
-msgstr ""
+msgstr "添加应用程序"
 
 #: src/utils/preferences.ts:174
 msgid "Application"
-msgstr ""
+msgstr "应用程序"
 
 #: src/utils/preferences.ts:200
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: src/utils/preferences.ts:351
 msgid "Configuration"
-msgstr ""
+msgstr "配置"
 
 #: src/utils/preferences.ts:201
 msgid "Confirm"
-msgstr ""
+msgstr "确认"
 
 #: src/utils/preferences.ts:337
 msgid "Disable animations"
-msgstr ""
+msgstr "禁用动画"
 
 #: src/utils/preferences.ts:361
 msgid "Experimental"
-msgstr ""
+msgstr "试验性"
 
 #: src/utils/preferences.ts:243
 msgid "Not set"
-msgstr ""
+msgstr "未设置"
 
 #: src/utils/preferences.ts:230
 msgid "Press a hotkey, Escape to cancel, or Backspace to clear."
-msgstr ""
+msgstr "按下快捷键，按Esc键以取消，或按退格键以清除。"
 
 #: src/utils/preferences.ts:214
 msgid "Register hotkey"
-msgstr ""
+msgstr "注册热键"
 
 #: src/utils/preferences.ts:282
 msgid "Remove"
-msgstr ""
+msgstr "移除"
 
 #: src/utils/preferences.ts:194
 msgid "Select application"
-msgstr ""
+msgstr "选择应用程序"
 
 #: src/utils/preferences.ts:338
 msgid "Suppress show and hide animations for a snappier experience."
-msgstr ""
+msgstr "抑制显示和隐藏时的动画，以获得更流畅的体验。"
