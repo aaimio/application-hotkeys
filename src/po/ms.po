@@ -1,69 +1,74 @@
 msgid ""
 msgstr ""
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2026-01-16 10:56+0000\n"
+"Last-Translator: bqis19 <balqishannan@yahoo.com>\n"
+"Language-Team: Malay <https://hosted.weblate.org/projects/application-"
+"hotkeys/extension/ms/>\n"
 "Language: ms\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #: src/utils/preferences.ts:108
 #: src/utils/preferences.ts:162
 msgid "<unknown>"
-msgstr ""
+msgstr "<tidak diketahui>"
 
 #: src/utils/preferences.ts:372
 msgid "About"
-msgstr ""
+msgstr "Perihal"
 
 #: src/utils/preferences.ts:308
 msgid "Add application"
-msgstr ""
+msgstr "Tambah aplikasi"
 
 #: src/utils/preferences.ts:174
 msgid "Application"
-msgstr ""
+msgstr "Aplikasi"
 
 #: src/utils/preferences.ts:200
 msgid "Cancel"
-msgstr ""
+msgstr "Batalkan"
 
 #: src/utils/preferences.ts:351
 msgid "Configuration"
-msgstr ""
+msgstr "Konfigurasi"
 
 #: src/utils/preferences.ts:201
 msgid "Confirm"
-msgstr ""
+msgstr "Sahkan"
 
 #: src/utils/preferences.ts:337
 msgid "Disable animations"
-msgstr ""
+msgstr "Nyahaktifkan animasi"
 
 #: src/utils/preferences.ts:361
 msgid "Experimental"
-msgstr ""
+msgstr "Eksperimental"
 
 #: src/utils/preferences.ts:243
 msgid "Not set"
-msgstr ""
+msgstr "Tidak ditetapkan"
 
 #: src/utils/preferences.ts:230
 msgid "Press a hotkey, Escape to cancel, or Backspace to clear."
 msgstr ""
+"Tekan kekunci pintas, Escape untuk batal, atau Backspace untuk kosongkan."
 
 #: src/utils/preferences.ts:214
 msgid "Register hotkey"
-msgstr ""
+msgstr "Daftar kekunci pantas"
 
 #: src/utils/preferences.ts:282
 msgid "Remove"
-msgstr ""
+msgstr "Padamkan"
 
 #: src/utils/preferences.ts:194
 msgid "Select application"
-msgstr ""
+msgstr "Pilih aplikasi"
 
 #: src/utils/preferences.ts:338
 msgid "Suppress show and hide animations for a snappier experience."
 msgstr ""
+"Nyahdayakan animasi paparan dan sembunyi untuk pengalaman yang lebih pantas."
