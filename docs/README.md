@@ -1,5 +1,9 @@
 # Application Hotkeys
 
+<a href="https://hosted.weblate.org/engage/application-hotkeys/">
+<img src="https://hosted.weblate.org/widget/application-hotkeys/svg-badge.svg" alt="Translation status" />
+</a>
+
 A GNOME Shell Extension that lets you launch, show, and hide applications using
 hotkeys.
 
@@ -14,7 +18,7 @@ hotkeys.
 > - Applications are always moved to the active workspace
 > - Applications are always moved to the monitor where your pointer is
 > - If an application has multiple windows open, they are cycled
-> - Showing and hiding applications happens instantly (optional)
+> - Animations can be suppressed for a snappier experience
 
 ## Installation
 
@@ -67,8 +71,8 @@ The easiest way to get started is by using the devcontainer
 ### Translations
 
 Translations are done through
-[Weblate](https://hosted.weblate.org/projects/application-hotkeys/), feel free
-to contribute!
+[Weblate](https://hosted.weblate.org/engage/application-hotkeys/), feel free to
+contribute!
 
 [![Weblate translation status](https://hosted.weblate.org/widget/application-hotkeys/extension/multi-green.svg)](https://hosted.weblate.org/engage/application-hotkeys/)
 
