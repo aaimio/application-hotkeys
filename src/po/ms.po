@@ -1,23 +1,24 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-01-16 10:56+0000\n"
-"Last-Translator: bqis19 <balqishannan@yahoo.com>\n"
+"PO-Revision-Date: 2026-02-02 10:01+0000\n"
+"Last-Translator: Mohdsyam Abubakar <msyam3835@gmail.com>\n"
 "Language-Team: Malay <https://hosted.weblate.org/projects/application-"
 "hotkeys/extension/ms/>\n"
 "Language: ms\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.15.2\n"
+"X-Generator: Weblate 5.16-dev\n"
 
 #: src/utils/preferences.ts:108
 #: src/utils/preferences.ts:162
+#, fuzzy
 msgid "<unknown>"
 msgstr "<tidak diketahui>"
 
 #: src/utils/preferences.ts:372
 msgid "About"
-msgstr "Perihal"
+msgstr "malayPerihal"
 
 #: src/utils/preferences.ts:308
 msgid "Add application"
