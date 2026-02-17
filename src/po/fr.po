@@ -1,69 +1,74 @@
 msgid ""
 msgstr ""
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2026-02-18 00:32+0000\n"
+"Last-Translator: Gameking <valafennou@gmail.com>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/application-"
+"hotkeys/extension/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.16.1-dev\n"
 
 #: src/utils/preferences.ts:108
 #: src/utils/preferences.ts:162
 msgid "<unknown>"
-msgstr ""
+msgstr "<inconnu>"
 
 #: src/utils/preferences.ts:372
 msgid "About"
-msgstr ""
+msgstr "A propos"
 
 #: src/utils/preferences.ts:308
 msgid "Add application"
-msgstr ""
+msgstr "Ajouter application"
 
 #: src/utils/preferences.ts:174
 msgid "Application"
-msgstr ""
+msgstr "Application"
 
 #: src/utils/preferences.ts:200
 msgid "Cancel"
-msgstr ""
+msgstr "Annuler"
 
 #: src/utils/preferences.ts:351
 msgid "Configuration"
-msgstr ""
+msgstr "Configuration"
 
 #: src/utils/preferences.ts:201
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmer"
 
 #: src/utils/preferences.ts:337
 msgid "Disable animations"
-msgstr ""
+msgstr "Désactiver les animations"
 
 #: src/utils/preferences.ts:361
 msgid "Experimental"
-msgstr ""
+msgstr "Expérimental"
 
 #: src/utils/preferences.ts:243
 msgid "Not set"
-msgstr ""
+msgstr "Non défini"
 
 #: src/utils/preferences.ts:230
 msgid "Press a hotkey, Escape to cancel, or Backspace to clear."
-msgstr ""
+msgstr "Appuyez sur un raccourci, Echap pour annuler, ou Effacer pour effacer."
 
 #: src/utils/preferences.ts:214
 msgid "Register hotkey"
-msgstr ""
+msgstr "Renseignez un raccourci"
 
 #: src/utils/preferences.ts:282
 msgid "Remove"
-msgstr ""
+msgstr "Supprimer"
 
 #: src/utils/preferences.ts:194
 msgid "Select application"
-msgstr ""
+msgstr "Sélectionnez une application"
 
 #: src/utils/preferences.ts:338
 msgid "Suppress show and hide animations for a snappier experience."
 msgstr ""
+"Supprimer les animations d'affichage et de masquage pour une expérience plus "
+"fluide."
