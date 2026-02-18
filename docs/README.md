@@ -83,3 +83,4 @@ Special thanks to the contributor(s) below:
 | Priit Jõerüüt                                   | 🇪🇪 Estonian           |
 | Pavel Borecki ([p-bo](https://github.com/p-bo)) | 🇨🇿 Czech              |
 | [yougg](https://github.com/yougg)               | 🇨🇳 Simplified Chinese |
+| [Gameking311](https://github.com/Gameking311)   | 🇫🇷 French             |
