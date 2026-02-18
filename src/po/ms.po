@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-02-18 00:32+0000\n"
+"PO-Revision-Date: 2026-02-18 00:34+0000\n"
 "Last-Translator: aaimio <aaim@protonmail.com>\n"
 "Language-Team: Malay <https://hosted.weblate.org/projects/application-"
 "hotkeys/extension/ms/>\n"
@@ -17,7 +17,7 @@ msgstr "<tidak diketahui>"
 
 #: src/utils/preferences.ts:372
 msgid "About"
-msgstr "malayPerihal"
+msgstr "Perihal"
 
 #: src/utils/preferences.ts:308
 msgid "Add application"
